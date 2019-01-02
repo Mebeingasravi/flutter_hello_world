@@ -57,10 +57,34 @@ class HomePage extends StatelessWidget {
       child: ListView(
         scrollDirection: Axis.vertical,
         children: <Widget>[
+          TextField(
+            decoration: InputDecoration(
+                border: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(10.0))),
+                    hintText: 'Search',
+                    ), 
+          ),
+          _topMenu(),
+          _add(),
           _container(),
           _card(),
           _container(),
-          _add(),
+          TextField(),
+          _container(),
+        ],
+      ),
+    );
+  }
+
+  Widget _topMenu() {
+    return Container(
+      child: Row(
+        children: <Widget>[
+          Text('Text'),
+          Icon(Icons.notifications),
+          Icon(Icons.account_circle),
+          Text('Abcd'),
+          //TextField(decoration: InputDecoration(border: InputBorder.none,hintText: 'Search',),),
         ],
       ),
     );
@@ -70,21 +94,13 @@ class HomePage extends StatelessWidget {
     return Container(child: Image.asset('assets/dribbble_shot.gif'));
   }
 
-  List<Widget> _cards() {
-    List<Widget> myItems = new List();
-    Widget ard = _card();
-    List<Widget> cds = new List();
-    cds.add(ard);
-    cds.add(ard);
-    return cds;
-  }
-
   ///First Container that contain store List of _contnr()
   Widget _container() {
     return Container(
         child: Container(
             margin: EdgeInsets.symmetric(vertical: 20.0),
-            color: Colors.white,
+            //color: Colors.white,
+            decoration: BoxDecoration(color: Colors.indigo),
             height: 200.0,
             child: _contnr()));
   }
@@ -93,15 +109,17 @@ class HomePage extends StatelessWidget {
   ListView _contnr() {
     return ListView(
       scrollDirection: Axis.horizontal,
-      padding: EdgeInsets.all(10),
+      //padding: EdgeInsets.all(10),
       children: <Widget>[
         Container(
           decoration: new BoxDecoration(
-              color: Colors.blue,
+              //color: Colors.blue,
               boxShadow: <BoxShadow>[
                 BoxShadow(offset: Offset(0, 0), blurRadius: 10.0)
               ]),
           width: 160.0,
+          padding: EdgeInsets.only(top: 20),
+          margin: EdgeInsets.only(right: 20, left: 20),
           child: Column(
             children: <Widget>[
               Icon(
@@ -123,11 +141,13 @@ class HomePage extends StatelessWidget {
         ),
         Container(
           decoration: new BoxDecoration(
-              color: Colors.blue,
+              //color: Colors.blue,
               boxShadow: <BoxShadow>[
                 BoxShadow(offset: Offset(0, 0), blurRadius: 10.0)
               ]),
           width: 160.0,
+          padding: EdgeInsets.only(top: 20),
+          margin: EdgeInsets.only(right: 20, left: 20),
           child: Column(
             children: <Widget>[
               Icon(
@@ -149,11 +169,13 @@ class HomePage extends StatelessWidget {
         ),
         Container(
           decoration: new BoxDecoration(
-              color: Colors.blue,
+              //color: Colors.blue,
               boxShadow: <BoxShadow>[
                 BoxShadow(offset: Offset(0, 0), blurRadius: 10.0)
               ]),
           width: 160.0,
+          padding: EdgeInsets.only(top: 20),
+          margin: EdgeInsets.only(right: 20, left: 20),
           child: Column(
             children: <Widget>[
               Icon(
@@ -173,7 +195,6 @@ class HomePage extends StatelessWidget {
           ),
           //color: Colors.red,
         ),
-
       ],
     );
   }
@@ -197,11 +218,11 @@ class HomePage extends StatelessWidget {
           title: new Text('Home'),
         ),
         BottomNavigationBarItem(
-          icon: new Icon(Icons.image),
+          icon: new Icon(Icons.mail),
           title: new Text('Trade'),
         ),
         BottomNavigationBarItem(
-          icon: new Icon(Icons.home),
+          icon: new Icon(Icons.person),
           title: new Text('Rate'),
         ),
       ],
@@ -216,29 +237,6 @@ class HomePage extends StatelessWidget {
           label: 'UNDO',
           onPressed: Scaffold.of(context).hideCurrentSnackBar,
         )));
-  }
-
-  Widget _listTile() {
-    return ListView(
-      children: <Widget>[
-        ListTile(
-            title: Text('ListTile Title'),
-            leading: Icon(Icons.flight_land),
-            subtitle: Text('this is subtitle of ListTile Widget')),
-        ListTile(
-          leading: Icon(Icons.map),
-          title: Text('Map'),
-        ),
-        ListTile(
-          leading: Icon(Icons.photo_album),
-          title: Text('Album'),
-        ),
-        ListTile(
-          leading: Icon(Icons.phone),
-          title: Text('Phone'),
-        ),
-      ],
-    );
   }
 
   Widget _card() {
