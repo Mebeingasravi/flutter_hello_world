@@ -1,13 +1,23 @@
 import 'package:flutter/material.dart';
 import 'Trade.dart';
 
-class HomePage extends StatelessWidget {
-  @override
+class HomePage extends StatefulWidget {
+  _homePage createState()=> _homePage();
+}
+
+class _homePage extends State<HomePage>{
+    @override
   Widget build(BuildContext context) {
     //final _context = context;{
     return MaterialApp(
       title: 'home',
       debugShowCheckedModeBanner: false,
+      routes: {
+        '/': (context) => _buildBody(context),
+        '/second': (context) => second(),
+        // '/dashboard': (context) => DashBoardScreen(),
+        // '/login': (context) => LoginScreen(),
+      },
       home: Scaffold(
         appBar: _appBar(context),
         body: _buildBody(context),
@@ -15,6 +25,10 @@ class HomePage extends StatelessWidget {
         floatingActionButton: _floatingActionButton(context),
       ),
     );
+  }
+  
+  Widget second(){
+    return MaterialApp(home:Scaffold(),)
   }
 
   Widget _appBar(BuildContext context) {

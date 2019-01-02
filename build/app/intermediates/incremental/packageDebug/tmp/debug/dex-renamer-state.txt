@@ -1,0 +1,4 @@
+#Wed Jan 02 11:40:59 IST 2019
+base.0=/home/ravi/apps/flutter_hello_world/build/app/intermediates/transforms/dexMerger/debug/0
+path.0=classes.dex
+renamed.0=classes.dex
